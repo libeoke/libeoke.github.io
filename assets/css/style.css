@@ -1,0 +1,233 @@
+:root {
+  --color-text: #212121;
+  --color-bg: #f6f6f6;
+  --color-bg-panel: #fff;
+  --color-accent: #ff0000;
+  --color-border: #e5e5e5;
+  --color-dot: #cdcdcd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic Medium", "Yu Gothic", Meiryo, sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.9;
+  letter-spacing: .02em;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+}
+
+.site-header__inner,
+.site-footer__inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.2rem 1.5rem;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+/* ヘッダー */
+.site-header {
+  background: var(--color-bg-panel);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-header__logo {
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.site-header__nav a {
+  margin-left: 1.75rem;
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: .9rem;
+  position: relative;
+  padding-bottom: .3rem;
+}
+
+.site-header__nav a:hover {
+  text-decoration: none;
+}
+
+.site-header__nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transition: transform .2s ease;
+}
+
+.site-header__nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* 見出し */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 2.5rem;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 3.5rem 0 1.75rem;
+}
+
+h2::before {
+  content: "";
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* 年表 */
+.timeline {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  column-gap: 0;
+}
+
+.timeline h3 {
+  grid-column: 1;
+  margin: 0 0 2.5rem;
+  padding-top: .1rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.timeline ul {
+  grid-column: 2;
+  list-style: none;
+  margin: 0 0 2.5rem;
+  padding: 0 0 0 2rem;
+  border-left: 2px solid var(--color-border);
+}
+
+.timeline li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+}
+
+.timeline li:last-child {
+  margin-bottom: 0;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .7em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-dot);
+}
+
+.timeline li img {
+  display: block;
+  margin-top: .75rem;
+  border-radius: 16px;
+  max-width: 360px;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  .timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline h3 {
+    grid-column: 1;
+    margin-bottom: .5rem;
+    font-size: 2rem;
+  }
+
+  .timeline ul {
+    grid-column: 1;
+    padding-left: 0;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-left: none;
+    border-bottom: 2px solid var(--color-border);
+  }
+}
+
+/* フッター */
+.site-footer {
+  margin-top: 4rem;
+  background: var(--color-bg-panel);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.site-footer__inner {
+  padding: 3rem 1.5rem;
+}
+
+.site-footer__x-link {
+  display: inline-block;
+  margin: 1rem 0;
+  padding: .7rem 2.2rem;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+.site-footer__x-link:hover {
+  text-decoration: none;
+  opacity: .85;
+}
+
+.site-footer__copyright {
+  margin-top: 2rem;
+  color: #888;
+  font-size: .8rem;
+}
